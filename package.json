@@ -1,0 +1,53 @@
+{
+  "name": "mda",
+  "version": "1.0.0",
+  "description": "An MDA Boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "projectUp": "npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EvangelosKolimitras/mda.git"
+  },
+  "keywords": [
+    "mongodb",
+    "express",
+    "react",
+    "node",
+    "docker",
+    "aws"
+  ],
+  "author": "Evangelos Kolimitras",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EvangelosKolimitras/mda/issues"
+  },
+  "homepage": "https://github.com/EvangelosKolimitras/mda#readme",
+  "dependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "@material-ui/core": "^4.7.0",
+    "eslint": "^6.7.1",
+    "node-sass": "^4.13.0",
+    "normalize.css": "^8.0.1",
+    "react-modal": "^3.11.1",
+    "react-router-dom": "^5.1.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.1",
+    "webpack-dev-server": "^3.9.0"
+  }
+}
