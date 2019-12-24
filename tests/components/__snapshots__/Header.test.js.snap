@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Header component correctly 1`] = `
+<header>
+  <h1>
+    Header Section
+  </h1>
+  <p>
+    Some to play
+  </p>
+  <NavLink
+    className="nav-item"
+    exact={true}
+    to="/"
+  >
+    Home
+  </NavLink>
+  <NavLink
+    className="nav-item"
+    to="/dashboard"
+  >
+    Dashboard
+  </NavLink>
+  <NavLink
+    className="nav-item"
+    to="/add"
+  >
+    Add
+  </NavLink>
+</header>
+`;

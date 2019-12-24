@@ -1,70 +1,80 @@
-const path = require( 'path' )
-const HTMLWebpackPlugin = require('html-webpack-plugin')
+const path = require("path")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 const MDA = {
-	_ENV : 'development',
-	_PUBLIC_ROOT : path.join(__dirname,"public"),
-	_PORT : process.env.PORT || 9999,
-	_ENTRIES : [
-		'./src/js/app.js'
-	]
+        PUBLIC: "/",
+        ENTRIES: ["./src/app/app.js" /*, "./playground/hoc.js"*/],
+        TEMPLATE: "./src/app/index.html",
+        ENV: "development",
+        PUBLIC_PATH: path.join(__dirname, "/public")
 }
 
+const { PUBLIC, PUBLIC_PATH, ENTRIES, TEMPLATE } = MDA
+
 module.exports = {
+        // Server
+        devServer: {
+                contentBase: PUBLIC_PATH,
+                historyApiFallback: true,
+                hot: true
+        },
 
-	// Entry point for starting the application
-	entry  : [...MDA._ENTRIES] ,
+        // Dev
+        devtool: "cheap-module-eval-source-map",
 
-	// Output to the public folder
-	output : {
-		path     : MDA._PUBLIC_ROOT ,
-		filename : './src/bundle.js'
-	} ,
+        // Entry point for starting the application
+        entry: ENTRIES,
 
-	// Modules
-	module : {
-		rules : [
+        // Modules
+        module: {
+                rules: [
+                        // Babel loader
 
-			// Babel loader
-			{
-				loader  : 'babel-loader' ,
-				test    : /\.js$/ ,
-				exclude : /node_modules/
-			},
+                        {
+                                exclude: /node_modules/,
+                                loader: "babel-loader",
+                                test: /\.js$/
+                        },
 
-			// scss loader
-			{
-				test: /\.(c|sc|sa)ss$/,
-				use : [
-					"style-loader",
-					"css-loader",
-					"sass-loader"
-				]
-			}
-		]
-	},
+                        // sass loader
 
-	// Plugins
-	plugins: [
+                        {
+                                test: /\.(sa|sc|c)ss$/,
+                                use: [
+                                        "style-loader",
+                                        "css-loader",
+                                        "sass-loader"
+                                ]
+                        },
 
-		// html plugin
-		new HTMLWebpackPlugin({
-			template: "src/index.ejs",
-			filename:"index.html"
-		})
-	],
+                        // file loader
 
-	// Server
-	devServer: {
-		contentBase: MDA._PUBLIC_ROOT,
-		port : MDA._PORT,
-		hot: true,
-		historyApiFallback: true
-	},
+                        {
+                                test: /\.(png|jpe?g|gif)$/i,
+                                use: [
+                                        {
+                                                loader: "file-loader"
+                                        }
+                                ]
+                        }
+                ]
+        },
 
-	// Mode
-	mode : MDA._ENV,
+        resolve: {
+                extensions: [".tsx", ".ts", ".js"]
+        },
 
-	// Dev
-	devtool: "cheap-module-eval-source-map"
+        // Output to the public folder
+        output: {
+                filename: "bundle.js",
+                path: PUBLIC_PATH,
+                publicPath: PUBLIC
+        },
+
+        // Plugins
+        plugins: [
+                new HtmlWebpackPlugin({
+                        template: TEMPLATE
+                })
+        ]
 }

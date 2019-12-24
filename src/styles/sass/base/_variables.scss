@@ -1,0 +1,12 @@
+/*
+ Global font size reset declaration to 62.5%
+ which is equivalent to 16px for the root
+ font size.
+
+ */
+
+// Global fonts map
+$global-fonts: (
+  "size": 62.5% /* default font size 16px */,
+  "family": "Verdana, Geneva, Tahoma, sans-serif"
+);

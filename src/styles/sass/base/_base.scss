@@ -1,0 +1,47 @@
+// NOTE SOME BASIC RESET SETUP
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: map-get($global-fonts, "size");
+}
+
+body {
+  font-family: map-get($global-fonts, "family");
+  background-color: map-get($primary, "bg-color");
+  color: map-get($primary, "color");
+  font-size: 1.5rem; //NOTE YOU CAN REMOVE THE CODE BELOW AND START CODING YOUR OWN
+
+  & > div {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    a,
+    a:active,
+    a:visited,
+    a:focus {
+      text-decoration: none;
+
+      &:hover {
+        color: darken(invert(#222), 20%);
+      }
+    }
+
+    img {
+      width: 4rem;
+      display: block;
+      margin: 1.5rem auto 0 auto;
+    }
+
+    .mda {
+      display: block;
+      font-size: 5rem;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+.nav-item {
+  font-size: 2rem;
+  background: darken(map-get($primary, "bg-color"), 10%);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-left: 1rem;
+}
