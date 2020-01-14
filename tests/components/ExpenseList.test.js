@@ -1,16 +1,23 @@
 import React from "react"
-import { shallow } from "enzyme"
 import { ExpenseList } from "../../src/scripts/js/Components/ExpenseList"
 import expenses from "../Fixtures/expenses"
+import toJson from "enzyme-to-json"
+import { shallow, configure } from "enzyme"
+import Adapter from "enzyme-adapter-react-16"
+configure({ adapter: new Adapter() })
 
-test("should render expenseList with expenses", () => {
-    const wrapper = shallow(<ExpenseList expenses={expenses} />)
-    console.log(wrapper)
-    expect(wrapper).toMatchSnapshot()
-})
+describe("Components", () => {
+    describe("the ExpenseList component", () => {
+        it("should render expenseList with expenses", () => {
+            const wrapper = shallow(<ExpenseList expenses={expenses} />)
+            console.log(wrapper)
+            expect(toJson(wrapper)).toMatchSnapshot()
+        })
 
-test("should render expenseList with no expenses", () => {
-    const wrapper = shallow(<ExpenseList expenses={[]} />)
-    console.log(wrapper)
-    expect(wrapper).toMatchSnapshot()
+        it("should render expenseList with no expenses", () => {
+            const wrapper = shallow(<ExpenseList expenses={[]} />)
+            console.log(wrapper)
+            expect(toJson(wrapper)).toMatchSnapshot()
+        })
+    })
 })

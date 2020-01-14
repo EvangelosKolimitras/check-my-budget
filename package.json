@@ -68,7 +68,7 @@
         "start": "webpack-dev-server",
         "reset": "rm -rf ./node_modules ./package-lock.json",
         "npm_install": "npm install",
-        "test": "jest --config=jest.config.json --watch"
+        "test": "jest --watch"
     },
     "version": "1.0.0"
 }

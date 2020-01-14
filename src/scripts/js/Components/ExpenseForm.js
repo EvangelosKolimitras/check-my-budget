@@ -9,13 +9,9 @@ export default class ExpenseForm extends React.Component {
 
         this.state = {
             description: props.expense ? props.expense.description : "",
-            amount: props.expense
-                ? (props.expense.amount / 100).toString()
-                : "",
+            amount: props.expense ? (props.expense.amount / 100).toString() : "",
             note: props.expense ? props.expense.note : "",
-            createdAt: props.expense
-                ? moment(props.expense.createdAt)
-                : moment(),
+            createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
             calenderFocused: false,
             error: ""
         }
@@ -31,8 +27,7 @@ export default class ExpenseForm extends React.Component {
     }
     HandlerChangeAmount = e => {
         const amount = e.target.value
-        if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/))
-            this.setState(() => ({ amount }))
+        if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) this.setState(() => ({ amount }))
     }
     onDateChange = createdAt => {
         if (createdAt) {
@@ -71,21 +66,10 @@ export default class ExpenseForm extends React.Component {
             <div>
                 {this.state.error && <p>{this.state.error}</p>}
                 <h1>Form</h1>
-                <form onSubmit={this.onSubmitHandler}>
-                    <input
-                        type='text'
-                        placeholder='Description'
-                        autoFocus
-                        value={this.state.description}
-                        onChange={this.HandlerChangeDescription}
-                    />
+                <form data-test='form' onSubmit={this.onSubmitHandler}>
+                    <input type='text' placeholder='Description' autoFocus value={this.state.description} onChange={this.HandlerChangeDescription} />
 
-                    <input
-                        type='text'
-                        placeholder={this.state.amount}
-                        value={this.state.amount}
-                        onChange={this.HandlerChangeAmount}
-                    />
+                    <input type='text' placeholder={this.state.amount} value={this.state.amount} onChange={this.HandlerChangeAmount} />
 
                     <SingleDatePicker
                         date={this.state.createdAt}
@@ -96,11 +80,7 @@ export default class ExpenseForm extends React.Component {
                         isOutsideRange={() => false}
                     />
 
-                    <textarea
-                        placeholder='Enter your note here.'
-                        value={this.state.note}
-                        onChange={this.HandlerChangeNote}
-                    ></textarea>
+                    <textarea placeholder='Enter your note here.' value={this.state.note} onChange={this.HandlerChangeNote}></textarea>
 
                     <button>Add Expense</button>
                 </form>

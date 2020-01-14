@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render DashboardPageRouter correctyly 1`] = `
+exports[`Routers the DashboardPageRouter router should render DashboardPageRouter correctyly 1`] = `
 <div>
   <h1>
     Dashboard

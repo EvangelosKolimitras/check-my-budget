@@ -13,7 +13,7 @@ export class Add extends React.Component {
         return (
             <div>
                 <h1>Add an expense</h1>
-                <ExpenseForm onSubmit={this.onSubmit} history={this.history} />
+                <ExpenseForm onSubmit={this.onSubmit} />
             </div>
         )
     }
