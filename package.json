@@ -10,6 +10,7 @@
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.2",
         "enzyme-to-json": "^3.4.3",
+        "mini-css-extract-plugin": "^0.9.0",
         "moment": "^2.24.0",
         "node-sass": "^4.13.0",
         "normalize.css": "^8.0.1",
@@ -64,7 +65,8 @@
     "name": "mda",
     "repository": "git+https://github.com/EvangelosKolimitras/mda.git",
     "scripts": {
-        "build": "webpack --watch",
+        "build:dev": "webpack",
+        "build:prod": "webpack -p --env production",
         "start": "webpack-dev-server",
         "reset": "rm -rf ./node_modules ./package-lock.json",
         "npm_install": "npm install",
