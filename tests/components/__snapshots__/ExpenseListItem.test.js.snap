@@ -10,9 +10,9 @@ exports[`Components the ExpenseListItem should render ExpenseListItem correctly 
     </h3>
   </Link>
   <p>
-    3
-     - 
-    0
+    0.030
+    -Created On: 
+    January 1st, 1970
   </p>
 </div>
 `;
