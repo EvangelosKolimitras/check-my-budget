@@ -2,15 +2,13 @@ const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
-const MDA = {
-    PUBLIC: "/",
+const { PUBLIC_PATH, ENTRIES, TEMPLATE, DEV_PUBLIC_PATH } = {
     ENTRIES: ["./src/app/app.js" /*, "./playground/hoc.js"*/],
     TEMPLATE: "./src/app/index.html",
     ENV: "development",
-    PUBLIC_PATH: path.join(__dirname, "/public")
+    PUBLIC_PATH: path.join(__dirname, "public"),
+    DEV_PUBLIC_PATH: "/dist/"
 }
-
-const { PUBLIC, PUBLIC_PATH, ENTRIES, TEMPLATE } = MDA
 
 module.exports = env => {
     const isProduction = env === "production"
@@ -20,7 +18,8 @@ module.exports = env => {
         devServer: {
             contentBase: PUBLIC_PATH,
             historyApiFallback: true,
-            hot: true
+            hot: true,
+            publicPath: DEV_PUBLIC_PATH
         },
 
         // Dev
@@ -81,8 +80,7 @@ module.exports = env => {
         // Output to the public folder
         output: {
             filename: "bundle.js",
-            path: PUBLIC_PATH,
-            publicPath: PUBLIC
+            path: path.join(__dirname, "public", "dist")
         },
 
         // Plugins

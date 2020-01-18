@@ -64,7 +64,4 @@ tests/components/ExpenseForm.test.js
 
 #public assets folder
 
-public/bundle.js
-public/bundle.js.map
-public/main.css
-public.css.map
+public/dist/*
