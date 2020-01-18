@@ -5,6 +5,7 @@ exports[`Routers the DashboardPageRouter router should render DashboardPageRoute
   <h1>
     Dashboard
   </h1>
+  <Connect(ExpenseSum) />
   <Connect(ExpenseListFilters) />
   <Connect(ExpenseList) />
 </div>

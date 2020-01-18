@@ -1,5 +1,5 @@
 const path = require("path")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
+// const HtmlWebpackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 const { PUBLIC_PATH, ENTRIES, TEMPLATE, DEV_PUBLIC_PATH } = {
@@ -18,7 +18,6 @@ module.exports = env => {
         devServer: {
             contentBase: PUBLIC_PATH,
             historyApiFallback: true,
-            hot: true,
             publicPath: DEV_PUBLIC_PATH
         },
 
@@ -85,9 +84,9 @@ module.exports = env => {
 
         // Plugins
         plugins: [
-            new HtmlWebpackPlugin({
-                template: TEMPLATE
-            }),
+            // new HtmlWebpackPlugin({
+            //     template: TEMPLATE
+            // }),
             new MiniCssExtractPlugin()
         ]
     }

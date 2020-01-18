@@ -7,7 +7,6 @@ import Store from "../redux/Store/Store"
 
 import "react-dates/lib/css/_datepicker.css"
 import { ADD_EXPENSE } from "../redux/actions/expenses"
-
 class Application extends React.Component {
     render() {
         return (
